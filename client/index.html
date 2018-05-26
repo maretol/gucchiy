@@ -16,18 +16,21 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="./all.js"></script>
         <div class="container">
+            <!-- ヘッダー -->
             <div class="column1">
                 <h1>ここにGucchiyのロゴ</h1>
             </div>
             <div class="container">
             <div class="navbar-header">
-                <ul class="nav nav-tabs nav-justified">
+                <ul class="nav nav-tabs nav-justified" id="mainTab">
                     <li role="presentation" class="active"><a href="#writegucchi" data-toggle="tab">Guchiる</a></li>
                     <li role="presentation"><a href="#somegucchi" data-toggle="tab">みんなのGuchi</a></li>
                     <li role="presentation"><a href="#empathygucchi" data-toggle="tab">共感の多いGuchi</a></li>
                 </ul>
             </div>
             </div>
+            <!-- タブ内部 -->
+            <!-- メインのGUCHIるタブ -->
             <div class="tab-content">
                 <div id="writegucchi" class="tab-pane active">
                     <div class="container">
@@ -41,34 +44,53 @@
                             <textarea class="form-control" id="InputTextArea" placeholder="さあ、Gucchiっておこう"></textarea>
                         </div>
                         <center><button type="submit" class="btn btn-lg" id="postGucchi" onclick="onClickPost()">Guchiる</button></center>
-                        <center><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#about" style="margin: 30px">Gucchiyとは</button></center>
-                        <div class="modal fade" id="about">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header" style="margin-bottom: 30px">
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="close"><span aria-hidden="true">&times;</span></button>
-                                            <h4 class="modal-title">Gucchiyとは</h4>
-                                        </div>
-                                        <div class="modal-body">
-                                            <center>
-                                                <p>愚痴りたいけどSNSに投稿するのはなぁ……</p>
-                                                <p>嫌な出来事をとにかく吐き出したい！</p>
-                                                <p>そんなときにとりあえず投稿できるサービスです！</p>
-                                                <p>登録も個人を特定するものも何もないのでただ吐き出すだけが出来ます！！</p>
-                                            </center>
-                                        </div>
-                                        <div class="modal-footer" style="margin-top: 30px">
-                                            <button type="button" class="btn btn-primary" data-dismiss="modal">閉じる</button>
-                                        </div>
+
+                        <!-- Guchiったあとのポップアップ -->
+                        <div class="modal fade" id="messageModal">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h3>Guchiった！</h3>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p id="resultBody">ちゃんとGuchiれたよ！！！</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <!-- Gucchiyとはみたいなところ -->
+                        <center><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#about" style="margin: 30px">Gucchiyとは</button></center>
+                        <div class="modal fade" id="about">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header" style="margin-bottom: 30px">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="close"><span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title">Gucchiyとは</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <center>
+                                            <p>愚痴りたいけどSNSに投稿するのはなぁ……</p>
+                                            <p>嫌な出来事をとにかく吐き出したい！</p>
+                                            <p>そんなときにとりあえず投稿できるサービスです！</p>
+                                            <p>登録も個人を特定するものも何もないのでただ吐き出すだけが出来ます！！</p>
+                                        </center>
+                                    </div>
+                                    <div class="modal-footer" style="margin-top: 30px">
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal">閉じる</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                <!-- Guchiを見る部分 -->
                 <div id="somegucchi" class="tab-pane">
                     <p>あたらしいぐちをみる</p>
                     <div id="somegucchilistdiv">
-                        
+                        <ol id="someGuchiList"></ol>
                     </div>
                 </div>
                 <div id="empathygucchi" class="tab-pane">
@@ -76,6 +98,5 @@
                 </div>
             </div>
         </div>
-        
     </body>
 </html>
