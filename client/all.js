@@ -4,26 +4,52 @@ function onClickPost(){
         showNoGuchiMessage()
         return
     }
-    showMessageModalDialog("Guchiを受け取ったよ！！")
+    showMessageModalDialog("Cuchiった！！！", "Guchiを受け取ったよ！！")
 }
 
 function showNoGuchiMessage(){
-    showMessageModalDialog("Guchiがないのはいいことだよね！！！")
+    showMessageModalDialog("Guchiってない！！！", "Guchiがないのはいいことだよね！！！")
 }
 
-function showMessageModalDialog(text){
+function showMessageModalDialog(title, text){
+    document.getElementById("resultTitle").textContent = title
     document.getElementById("resultBody").textContent = text
     $('#messageModal').modal();
 }
 
-$('#mainTab a').on('show.bs.tab', function(event){
-    if($(event.target).text()=="somegucchi"){
+// ここのセレクタをちゃんとしたい（ちゃんとしたら動かない（ちゃんとできてない（わからない
+$('*').on('show.bs.tab', function(event){
+    if(event.target.id=="someGucchiTab"){
         for(var i=0; i<10; i++){
-            console.log("hogehoge")
             var container = document.getElementById("someGuchiList")
-            var item = document.createElement("li")
-            item.textContent = "HELLO"
+            var item = createGucchiListItem("Hello" + i)
             container.appendChild(item);
         }
     }
 })
+
+function createGucchiListItem(text){
+    var item = document.createElement("li")
+    item.className="list-group-item"
+
+    var childrenHeader = document.createElement("div")
+    childrenHeader.className = "list-group-item-heading"
+    childrenHeader.textContent = "header"
+
+    var children = document.createElement("div")
+    children.className = "list-group-item-footer"
+    children.textContent = text
+    
+    var childrenFooter = document.createElement("div")
+    childrenFooter.className = "list-group-item-footing"
+    childrenFooter.appendChild(function(){
+        var button = document.createElement("button")
+        button.textContent = "button"
+        return button
+    }())
+
+    item.appendChild(childrenHeader)
+    item.appendChild(children)
+    item.appendChild(childrenFooter)
+    return item
+}

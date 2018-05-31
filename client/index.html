@@ -24,8 +24,8 @@
             <div class="navbar-header">
                 <ul class="nav nav-tabs nav-justified" id="mainTab">
                     <li role="presentation" class="active"><a href="#writegucchi" data-toggle="tab">Guchiる</a></li>
-                    <li role="presentation"><a href="#somegucchi" data-toggle="tab">みんなのGuchi</a></li>
-                    <li role="presentation"><a href="#empathygucchi" data-toggle="tab">共感の多いGuchi</a></li>
+                    <li role="presentation"><a href="#somegucchi" data-toggle="tab" id="someGucchiTab">みんなのGuchi</a></li>
+                    <li role="presentation"><a href="#empathygucchi" data-toggle="tab" id="empathyGucchiTab">共感の多いGuchi</a></li>
                 </ul>
             </div>
             </div>
@@ -49,10 +49,8 @@
                         <div class="modal fade" id="messageModal">
                             <div class="modal-dialog">
                                 <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h3>Guchiった！</h3>
-                                    </div>
                                     <div class="modal-body">
+                                        <h3><p id="resultTitle">Guchiった！！！</p></h3>
                                         <p id="resultBody">ちゃんとGuchiれたよ！！！</p>
                                     </div>
                                     <div class="modal-footer">
@@ -89,7 +87,26 @@
                 <!-- Guchiを見る部分 -->
                 <div id="somegucchi" class="tab-pane">
                     <p>あたらしいぐちをみる</p>
-                    <div id="somegucchilistdiv">
+                    <div id="sampleGuchi" class="list-group">
+                        <ol id="sampleList">
+                            <li class="list-group-item">
+                                <div class="list-group-item-heading">へっだ</div>
+                                <div class="list-group-item-text">text</div>
+                                <div class="list-group-item-footing">
+                                    <button>ボタン1</button>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="list-group-item-heading">へっだ</div>
+                                <div class="list-group-item-text">text</div>
+                                <div class="list-group-item-footing">
+                                    <button>ボタン</button>
+                                </div>
+                            </li>    
+                        </ol>
+                    </div>
+
+                    <div id="somegucchilistdiv" class="list-group">
                         <ol id="someGuchiList"></ol>
                     </div>
                 </div>
