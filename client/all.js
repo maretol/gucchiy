@@ -42,14 +42,25 @@ function createGucchiListItem(text){
     
     var childrenFooter = document.createElement("div")
     childrenFooter.className = "list-group-item-footing"
-    childrenFooter.appendChild(function(){
-        var button = document.createElement("button")
-        button.textContent = "button"
-        return button
-    }())
+    childrenFooter.appendChild(createButton("わかる"))
+    childrenFooter.appendChild(createButton("それな"))
 
     item.appendChild(childrenHeader)
     item.appendChild(children)
     item.appendChild(childrenFooter)
+
     return item
+}
+
+function createButton(text){
+    var button = document.createElement("button")
+    button.appendChild(function(){
+        var icon = document.createElement("span")
+        icon.className = "glyphicon glyphicon-plus"
+        icon.setAttribute("aria-hidden", "true")
+        
+        return icon
+    }())
+    button.textContent = text
+    return button
 }
